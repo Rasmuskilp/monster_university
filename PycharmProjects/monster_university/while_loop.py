@@ -22,11 +22,12 @@ from run_uni import *
 while True:
     print('1 - create a monster')
     print('2 - list all workshops')
-    print('3 - add students to monster list')
+    print('3 - add students to monster list + workshop')
     print('4 - see students grade')
     print('5 - print a students full information')
     print('6 - search for a student by name')
     print('7 - add new workshop')
+    print('8 - add student to workshop')
     interface = input('Enter the number for the option you wish to choose')
     if '1' in interface:
         add_student = input('what is the name of the student?')
@@ -54,11 +55,19 @@ while True:
                 print('error')
     elif '7' in interface:
             clerk_functions()
+    elif '8' in interface:
+        for woks in workshops:
+            print(woks.workshop_id)
+        choice = input('which workshop do you wish to add the student to, from the list of workshop id"s?')
+        for workshop in workshops:
+            if  choice == workshop.workshop_id:
+                workshop.add_student_workshop(int(add_id))
+                print(workshop.list_of_students)
+        # workshop.add_student_workshop(int(add_id))
     else:
         print('Sorry but you did not enter a number, do you wish to exit, then press y')
         exits = input('press y if you want to exit')
         if 'y' in exits:
-            break
             exit()
 
 
